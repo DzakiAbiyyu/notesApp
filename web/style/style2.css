@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar-logo {
+    font-size: 24px;
+    color: white;
+    font-style: italic;
+}
+
+.navbar-nav {
+    display: flex; /* Tampilkan semua link dalam baris */
+    gap: 20px;
+}
+
+.navbar-nav a {
+    color: white;
+}
+
+.navbar-nav a:hover {
+    color: #927c7c;
+}
+
+.navbar-extra {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-extra a {
+    color: white;
+}
+
+/* Hamburger menu hanya untuk tampilan mobile */
+#hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+
+/* Media query */
+
+
+/* Laptop */
+@media (min-width: 1366px) { 
+    html {
+        font-size: 75%;
+    }
+}
+
+
+/* Responsif untuk tablet dan ponsel */
+
+@media (max-width: 768px) { 
+    .navbar-extra a:not(#hamburger-menu) { 
+        display: none; /* Sembunyikan tombol Daftar & Masuk */
+    }
+
+    #hamburger-menu {
+        display: inline-block; /* Tampilkan menu hamburger */
+    }
+    
+    .navbar-nav {
+        display: none; /* Awalnya sembunyikan menu */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgb(161, 67, 67);
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav.active {
+        display: flex; /* Tampilkan menu saat hamburger diklik */
+        right: 0;
+    }
+
+    .navbar-nav a {
+        padding: 10px;
+        text-align: center;
+    }
+
+}
+
+
+/* Responsif untuk ponsel */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
+    .navbar {
+        flex-direction: column; /* Tumpuk item secara vertikal */
+        align-items: flex-start; /* Rata kiri */
+    }
+
+    .navbar-extra {
+        width: 100%; /* Lebar penuh untuk tombol */
+        justify-content: flex-end; /* Rata kanan */
+    }
+}

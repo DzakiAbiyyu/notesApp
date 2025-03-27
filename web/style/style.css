@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar-logo {
+    font-size: 24px;
+    color: white;
+    font-style: italic;
+}
+
+.navbar-nav {
+    display: flex; /* Tampilkan semua link dalam baris */
+    gap: 20px;
+}
+
+.navbar-nav a {
+    color: white;
+}
+
+.navbar-nav a:hover {
+    color: #927c7c;
+}
+
+.navbar-extra {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-extra a {
+    color: white;
+}
+
+/* Hamburger menu hanya untuk tampilan mobile */
+#hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+
+/* Media query */
+
+
+/* Laptop */
+@media (min-width: 1366px) { 
+    html {
+        font-size: 75%;
+    }
+}
+
+
+/* Responsif untuk tablet dan ponsel */
+@media (max-width: 768px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    #hamburger-menu {
+        display: inline-block; /* Tampilkan menu hamburger */
+    }
+
+    .navbar .navbar-extra a {
+        display: none;
+    }
+
+    .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar-nav {
+        position: absolute;
+        background-color: rgb(137, 106, 106);
+        display: flex;
+        flex-direction: column;
+        top: 100%;
+        right: -100%;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar .navbar-nav a {
+        color: #333;
+        display: block;
+        margin: 2px;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+    
+}
+
+/* Responsif untuk ponsel */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
+    .navbar {
+        flex-direction: column; /* Tumpuk item secara vertikal */
+        align-items: flex-start; /* Rata kiri */
+    }
+
+    .navbar-nav {
+        position: absolute;
+        background-color: rgb(137, 106, 106);
+        display: flex;
+        flex-direction: column;
+        top: 100%;
+        right: -100%;
+        width: 20rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar-extra {
+        width: 100%; /* Lebar penuh untuk tombol */
+        justify-content: flex-end; /* Rata kanan */
+    }
+}
